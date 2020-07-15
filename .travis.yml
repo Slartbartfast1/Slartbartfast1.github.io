@@ -6,11 +6,8 @@ cache: npm
 branches:
   only:
     - feat/1.0.1 # build master branch only
+
 script:
-  - git clone https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak.git themes/hexo-theme-tranquilpeak
-  - cd themes/hexo-theme-tranquilpeak
-  - npm i
-  - cd ../.. 
   - hexo generate # generate static files
 deploy:
   provider: pages
@@ -18,6 +15,7 @@ deploy:
   github-token: $GH_TOKEN
   keep-history: true
   target: master
+  target_branch: master
   on:
     all_branches: true
   local-dir: public
